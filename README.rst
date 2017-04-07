@@ -21,7 +21,7 @@ Initial installation
 
 #. Fork https://github.com/dmugtasimov/dmu-utils repository
 
-#. Clone forked repository (replace <username> with your bi account name)::
+#. Clone forked repository (replace <username> with your github account name)::
 
     git clone git@github.com:<username>/dmu-utils.git
     cd dmu-utils
@@ -54,7 +54,7 @@ Initial installation
 
 #. Install Python prerequisites::
 
-    pip install setuptools==34.3.2
+    pip install setuptools==34.3.3
     pip install pip==9.0.1
 
 #. Continue with `Upgrade`_ section

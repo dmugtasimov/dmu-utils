@@ -66,15 +66,23 @@ Upgrade
 
     cd dmu-utils
     workon dmu-utils
-    pip install -e .
+    pip install -e .[dev]
 
-Run
----
+
+Run tests
+---------
 
 #. Activate virtual env::
 
     cd dmu-utils
     workon dmu-utils
+
+#. With pytest::
+
+    pytest
+    # or
+    mkdir tmp
+    pytest --cov-report annotate:./tmp/cov_annotate --cov=dmu_utils
 
 Various tasks
 -------------

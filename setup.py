@@ -14,7 +14,9 @@ setup(
     zip_safe=False,
     platforms='any',
     install_requires=[],
-    extras_require={},
+    extras_require={
+        'dev': ['pytest==3.0.7', 'mock==2.0.0', 'pytest-mock==1.6.0', 'pytest-cov==2.4.0']
+    },
     include_package_data=True,
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',

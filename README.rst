@@ -66,7 +66,7 @@ Upgrade
 
     cd dmu-utils
     workon dmu-utils
-    pip install -e .[dev]
+    pip install -e .[schematics,dev]
 
 
 Run tests

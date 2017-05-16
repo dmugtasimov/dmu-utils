@@ -1,3 +1,9 @@
+Release 0.0.3
+-------------
+
+* Schematics utils
+* Python 3 support
+
 Release 0.0.2
 -------------
 

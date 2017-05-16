@@ -6,10 +6,12 @@ from dmu_utils.misc import get_call_repr
 
 class Duration(object):
 
-    def __init__(self, logger_method, template=None, log_args=False):
+    def __init__(self, logger_method, template=None, log_args=False, prefix=None):
         self.logger_method = logger_method
         self.template = template
         self.log_args = log_args
+        self.prefix = prefix
+
         self.start_time = None
 
     def __call__(self, func_or_meth):
@@ -24,7 +26,8 @@ class Duration(object):
                 else:
                     template = get_call_repr(func_or_meth)
 
-            with Duration(self.logger_method, template=template, log_args=self.log_args):
+            with Duration(self.logger_method, template=template, log_args=self.log_args,
+                          prefix=self.prefix):
                 return func_or_meth(*args, **kwargs)
 
         return wrapper
@@ -37,6 +40,9 @@ class Duration(object):
 
         message = (self.template or 'block') + ' is done in {:.06f} seconds'.format(
             finish_time - self.start_time)
+
+        if self.prefix:
+            message = self.prefix + message
 
         if exc_type:
             message += ' with {!r}'.format(exc_value)

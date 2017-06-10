@@ -2,6 +2,7 @@ from six import iteritems
 
 from schematics import Model as SchematicsModel
 from sqlalchemy.ext.declarative import DeclarativeMeta, declarative_base
+from sqlalchemy_utils.functions import get_columns
 
 from dmu_utils.schematics.models import get_schematics_model_fields
 from .types import schematics_field_to_sqlalchemy_column
@@ -34,6 +35,14 @@ class CustomBase(object):
         instance.update_from_schematics_instance(schematics_instance, include=include,
                                                  exclude=exclude)
         return instance
+
+    def to_schematics_instance(self, schematics_model=None):
+        schematics_model = schematics_model or getattr(self, '__schematics_model__', None)
+        if not schematics_model:
+            raise ValueError('Nor schematics_model method attribute neither __schematics_model__ '
+                             'class attribute provided')
+        return schematics_model({column.name: getattr(self, column.name) for column
+                                 in get_columns(self)}, strict=False)
 
 
 class CustomDeclarativeMeta(DeclarativeMeta):

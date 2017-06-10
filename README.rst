@@ -66,7 +66,7 @@ Upgrade
 
     cd dmu-utils
     workon dmu-utils
-    pip install -e .[schematics,dev]
+    pip install -e .[schematics,sqlalchemy,dev]
 
 
 Run tests

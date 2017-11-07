@@ -1,7 +1,7 @@
 from setuptools import setup
 
 
-version = '0.0.3'
+version = '0.0.3.dev3'
 
 setup(
     name='dmu-utils',
@@ -18,7 +18,7 @@ setup(
     ],
     extras_require={
         'schematics': ['schematics==2.0.0a1'],
-        'sqlalchemy': ['SQLAlchemy==1.1.9'],
+        'sqlalchemy': ['SQLAlchemy==1.1.9', 'SQLAlchemy-Utils==0.32.14'],
         'dev': ['pytest==3.0.7', 'mock==2.0.0', 'pytest-mock==1.6.0', 'pytest-cov==2.4.0']
     },
     include_package_data=True,

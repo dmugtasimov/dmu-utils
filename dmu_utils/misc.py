@@ -20,3 +20,7 @@ def get_call_repr(func_or_meth, args=(), kwargs=None):
         ', '.join(chain((repr(arg) for arg in args),
                         ('{}={!r}'.format(k, v) for k, v in iteritems(kwargs))))
     )
+
+
+def identity_func(x):
+    return x
